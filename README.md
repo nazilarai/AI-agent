@@ -1,232 +1,303 @@
-# AI Assistant CLI Tool - Project Structure
+# 🔍 Smart Admin Finder
 
-```
-ai_assistant_cli/
-│
-├── 📁 core/
-│   ├── __init__.py
-│   ├── config.py                    # Configuration management & model settings
-│   ├── cli.py                      # Main CLI interface and argument parsing
-│   ├── assistant.py                # Core assistant orchestrator
-│   └── exceptions.py               # Custom exception classes
-│
-├── 📁 models/
-│   ├── __init__.py
-│   ├── model_manager.py            # LLM model selection and switching
-│   ├── openrouter_client.py        # OpenRouter API client
-│   └── response_parser.py          # Parse LLM responses and extract JSON
-│
-├── 📁 task_planning/
-│   ├── __init__.py
-│   ├── planner.py                  # High-level task decomposition
-│   ├── task_queue.py               # Task queue management
-│   ├── executor.py                 # Task execution engine
-│   └── tracker.py                  # Live task status tracking
-│
-├── 📁 tools/
-│   ├── __init__.py
-│   ├── base_tool.py                # Abstract base class for tools
-│   ├── file_operations.py          # File creation, reading, writing
-│   ├── code_quality.py             # Linting tools (pylint, black, eslint)
-│   ├── terminal_executor.py        # Safe terminal command execution
-│   ├── browser_controller.py       # Firefox automation
-│   └── tool_registry.py            # Tool registration and discovery
-│
-├── 📁 sandbox/
-│   ├── __init__.py
-│   ├── sandbox_manager.py          # Isolated environment management
-│   ├── security.py                 # Security policies and validation
-│   └── resource_monitor.py         # Resource usage monitoring
-│
-├── 📁 memory/
-│   ├── __init__.py
-│   ├── memory_manager.py           # Task memory and context management
-│   ├── summarizer.py               # Memory summarization
-│   ├── embeddings.py               # Text embeddings for ChromaDB
-│   └── chromadb_client.py          # ChromaDB integration
-│
-├── 📁 search/
-│   ├── __init__.py
-│   ├── semantic_search.py          # Semantic search in project files
-│   ├── indexer.py                  # File indexing and preprocessing
-│   └── retriever.py                # Document retrieval and ranking
-│
-├── 📁 input_processing/
-│   ├── __init__.py
-│   ├── file_processor.py           # Handle zip, text, code files
-│   ├── parsers/
-│   │   ├── __init__.py
-│   │   ├── zip_parser.py           # Extract and process zip files
-│   │   ├── text_parser.py          # Process text files
-│   │   └── code_parser.py          # Parse code files with AST
-│   └── validators.py               # Input validation
-│
-├── 📁 database/
-│   ├── __init__.py
-│   ├── models.py                   # SQLAlchemy models
-│   ├── database.py                 # Database connection and operations
-│   ├── usage_tracker.py            # Track model usage and stats
-│   └── feedback_manager.py         # Handle user feedback and RL data
-│
-├── 📁 ui/
-│   ├── __init__.py
-│   ├── interactive_mode.py         # Interactive CLI interface
-│   ├── progress_display.py         # Task progress visualization
-│   ├── logger.py                   # Structured logging
-│   └── formatter.py                # Output formatting and colors
-│
-├── 📁 learning/
-│   ├── __init__.py
-│   ├── feedback_processor.py       # Process manual and LLM feedback
-│   ├── reinforcement_learning.py   # RL algorithm implementation
-│   └── model_optimizer.py          # Model selection optimization
-│
-├── 📁 utils/
-│   ├── __init__.py
-│   ├── file_utils.py               # File system utilities
-│   ├── json_utils.py               # JSON parsing and validation
-│   ├── crypto_utils.py             # Security and hashing utilities
-│   └── system_utils.py             # System information and compatibility
-│
-├── 📁 config/
-│   ├── settings.yaml               # Default configuration
-│   ├── models.yaml                 # Model configurations
-│   ├── tools.yaml                  # Tool configurations
-│   └── security_policies.yaml     # Security and sandbox policies
-│
-├── 📁 templates/
-│   ├── task_templates/             # Predefined task templates
-│   │   ├── code_generation.yaml
-│   │   ├── data_analysis.yaml
-│   │   └── web_scraping.yaml
-│   └── prompt_templates/           # LLM prompt templates
-│       ├── task_planning.txt
-│       ├── code_review.txt
-│       └── tool_calling.txt
-│
-├── 📁 sandbox_workspaces/          # Isolated task workspaces
-│   └── .gitkeep
-│
-├── 📁 data/
-│   ├── embeddings/                 # ChromaDB storage
-│   ├── logs/                       # Application logs
-│   ├── cache/                      # Temporary cache files
-│   └── database.sqlite             # SQLite database
-│
-├── 📁 tests/
-│   ├── __init__.py
-│   ├── test_core/
-│   ├── test_tools/
-│   ├── test_task_planning/
-│   ├── test_memory/
-│   ├── test_search/
-│   ├── test_sandbox/
-│   └── test_integration/
-│
-├── 📁 scripts/
-│   ├── setup.py                    # Initial setup script
-│   ├── install_dependencies.py    # Dependency installation
-│   └── cleanup.py                  # Cleanup temporary files
-│
-├── 📁 docs/
-│   ├── README.md
-│   ├── ARCHITECTURE.md
-│   ├── API_REFERENCE.md
-│   ├── USAGE_EXAMPLES.md
-│   └── SECURITY.md
-│
-├── requirements.txt                # Python dependencies
-├── requirements-dev.txt            # Development dependencies
-├── pyproject.toml                  # Project metadata and build config
-├── setup.py                        # Package installation
-├── .env.example                    # Environment variables template
-├── .gitignore
-└── main.py                         # Entry point
+**Expert-Level Admin Panel Discovery Tool for Ethical Security Assessments**
+
+A professional-grade Python CLI tool that generates intelligent admin panel URL paths using contextual heuristics, OSINT enrichment, and machine learning techniques.
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/user/smart-admin-finder)
+[![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+
+## ⚠️ **ETHICAL USE ONLY**
+
+This tool is designed exclusively for **authorized security assessments** and **educational purposes**. Users must ensure they have explicit permission before testing any systems.
+
+## 🚀 Features
+
+### Core Capabilities
+- **🎯 Intelligent Path Generation**: Over 500+ base admin paths across multiple categories
+- **🧠 ML-Enhanced Accuracy**: TF-IDF vectorization for context-aware suggestions
+- **🌐 OSINT Enrichment**: DNS reconnaissance, WHOIS lookups, technology detection
+- **⚙️ CMS Detection**: Automatic detection and specialized paths for 8+ CMS platforms
+- **🌍 Multi-Language Support**: Localized admin paths for 9 languages
+- **📊 Smart Ranking**: Intelligent scoring algorithm for path prioritization
+
+### Supported Platforms
+- **CMS**: WordPress, Joomla, Drupal, Magento, Shopify, PrestaShop, OpenCart, TYPO3
+- **Languages**: English, Spanish, French, German, Italian, Portuguese, Russian, Chinese, Japanese
+- **Site Types**: Blog, Shop, Government, Corporate, Educational, News, Forum
+
+### Advanced Features
+- **Subdomain Analysis**: Automatic subdomain enumeration and analysis
+- **Technology Stack Detection**: Server fingerprinting and framework identification
+- **Name-Based Paths**: Personalized paths using owner information
+- **Graceful Degradation**: Works without optional dependencies
+
+## 📋 Requirements
+
+### System Requirements
+- **Python**: 3.8 or higher
+- **OS**: Linux, macOS, Windows
+- **Memory**: 256MB minimum
+
+### Dependencies
+
+#### Core (Required)
+```bash
+# Built-in Python modules only for basic functionality
 ```
 
-## 🏗️ Core Architecture Components
-
-### 1. **Core Module**
-- **cli.py**: Main CLI interface using `argparse` or `click`
-- **assistant.py**: Central orchestrator that coordinates all components
-- **config.py**: Configuration management with support for multiple LLM models
-
-### 2. **Model Management**
-- **model_manager.py**: Handles switching between the 5 LLM models
-- **openrouter_client.py**: API client for OpenRouter integration
-- **response_parser.py**: Extracts JSON tool calls from LLM responses
-
-### 3. **Task Planning Engine**
-- **planner.py**: Breaks down high-level prompts into executable sub-tasks
-- **task_queue.py**: Manages task prioritization and scheduling
-- **executor.py**: Executes tasks with proper error handling
-- **tracker.py**: Real-time task status monitoring
-
-### 4. **Tool System**
-- **base_tool.py**: Abstract base class for all tools
-- **file_operations.py**: File CRUD operations
-- **code_quality.py**: Integration with pylint, black, eslint
-- **terminal_executor.py**: Secure command execution in sandbox
-- **browser_controller.py**: Firefox automation using Selenium
-
-### 5. **Sandbox Environment**
-- **sandbox_manager.py**: Creates isolated workspaces for each task
-- **security.py**: Enforces security policies and command validation
-- **resource_monitor.py**: Monitor CPU/memory usage
-
-### 6. **Memory & Knowledge**
-- **memory_manager.py**: Per-task memory management
-- **chromadb_client.py**: Vector database for semantic search
-- **embeddings.py**: Text embedding generation
-
-### 7. **Input Processing**
-- **file_processor.py**: Main file processing coordinator
-- **zip_parser.py**: Extract and analyze zip files
-- **code_parser.py**: AST-based code analysis
-
-### 8. **Database Layer**
-- **models.py**: SQLAlchemy models for usage tracking
-- **usage_tracker.py**: Track model performance and costs
-- **feedback_manager.py**: Store and process user feedback
-
-### 9. **Learning System**
-- **reinforcement_learning.py**: RL for model selection optimization
-- **feedback_processor.py**: Process manual and automated feedback
-
-## 🔧 Key Features Implementation
-
-### **JSON Tool Calling Format**
-```json
-{
-  "tool": "create_file",
-  "parameters": {
-    "path": "example.py",
-    "content": "print('Hello World')"
-  }
-}
+#### Enhanced Features (Optional)
+```bash
+pip install requests dnspython python-whois numpy scikit-learn
 ```
 
-### **Terminal Command Execution**
-```json
-{
-  "tool": "run_command",
-  "parameters": {
-    "command": "python -m pytest tests/",
-    "working_directory": "./sandbox_workspace_123",
-    "timeout": 30
-  }
-}
+**Note**: The tool works without optional dependencies but with reduced OSINT and ML capabilities.
+
+## 🛠️ Installation
+
+### Option 1: Direct Usage
+```bash
+# Clone or download main.py
+python3 main.py
 ```
 
-### **Task Progress Tracking**
-- Real-time status updates in CLI
-- Structured logging with timestamps
-- Progress bars for long-running tasks
+### Option 2: With Enhanced Features
+```bash
+# Install optional dependencies for full functionality
+pip install requests dnspython python-whois numpy scikit-learn
+python3 main.py
+```
 
-### **Security Features**
-- Sandboxed execution environment
-- Command whitelist/blacklist
-- Resource usage limits
-- File access restrictions
+### Option 3: Virtual Environment (Recommended)
+```bash
+python3 -m venv smart_admin_env
+source smart_admin_env/bin/activate  # Linux/Mac
+# smart_admin_env\Scripts\activate  # Windows
+pip install requests dnspython python-whois numpy scikit-learn
+python3 main.py
+```
 
-This architecture provides a solid foundation for building your AI assistant CLI tool with all the required features while maintaining modularity and security.
+## 💻 Usage
+
+### Basic Usage
+```bash
+python3 main.py
+```
+
+### Command Line Options
+```bash
+python3 main.py --help     # Show help message
+python3 main.py --version  # Show version information
+```
+
+### Interactive Mode
+The tool runs in interactive mode by default, prompting for:
+
+#### Required Information
+- **Target URL**: The website to analyze (e.g., `https://example.com`)
+
+#### Optional Information (Press Enter to skip)
+- **Owner's Name**: For personalized path generation
+- **Site Type**: blog, shop, government, corporate, educational, news, forum
+- **CMS Platform**: wordpress, joomla, drupal, magento, shopify, etc.
+- **Language**: For localized admin paths
+- **OSINT Enrichment**: Enable advanced reconnaissance (y/N)
+
+### Example Session
+```
+🌐 Target website URL (required): https://example.com
+� Owner's full name: John Smith
+🏢 Site type: blog
+⚙️ CMS/Platform used: wordpress
+🌍 Site language: english
+Enable expert-level OSINT enrichment? (y/N): y
+```
+
+## 📊 Output
+
+### Generated Files
+- **`output/generated_admin_paths.txt`**: Complete list of generated paths with metadata
+
+### Output Structure
+```
+# === HIGH PRIORITY PATHS (Top 50) ===
+admin
+wp-admin
+administrator
+...
+
+# === ADDITIONAL PATHS ===
+backend
+control
+...
+
+# === STATISTICS ===
+# Total unique paths generated: 247
+# High priority paths: 50
+# Additional paths: 197
+```
+
+### Path Categories
+1. **High Priority** (Top 50): Most likely admin paths based on scoring
+2. **Additional Paths**: Extended suggestions for comprehensive testing
+3. **Statistics**: Generation summary and metadata
+
+## 🧠 Intelligence Features
+
+### Path Generation Sources
+- **Base Admin Paths**: 35+ common admin URL patterns
+- **CMS-Specific**: Targeted paths for detected/specified CMS
+- **Language-Specific**: Localized admin terminology
+- **Site-Type Specific**: Paths based on website category
+- **Name-Based**: Variations using owner information
+- **Subdomain Analysis**: Paths derived from subdomain patterns
+- **OSINT-Enhanced**: Intelligence from reconnaissance data
+- **ML-Generated**: Context-aware suggestions using TF-IDF
+
+### Scoring Algorithm
+Paths are ranked using multiple factors:
+- **Admin Keywords**: Presence of administrative terms
+- **CMS Relevance**: Match with detected/specified platform
+- **Language Match**: Alignment with specified language
+- **Site Type**: Relevance to website category
+- **Personalization**: Inclusion of owner information
+- **Simplicity Bonus**: Preference for clean, simple paths
+- **Complexity Penalty**: Reduction for overly complex URLs
+
+## 🔍 OSINT Capabilities
+
+When enabled, the tool performs:
+
+### DNS Reconnaissance
+- A, AAAA, CNAME, MX, TXT, NS record enumeration
+- Common subdomain discovery
+- DNS-based technology hints
+
+### WHOIS Analysis
+- Domain registration information
+- Organizational details
+- Country and registrar data
+
+### Technology Detection
+- Server fingerprinting via headers
+- Automatic CMS detection
+- Framework identification
+- Technology stack analysis
+
+## 🛡️ Security & Ethics
+
+### Ethical Guidelines
+1. **Authorization Required**: Only test systems you own or have explicit permission to test
+2. **Legal Compliance**: Ensure compliance with local laws and regulations
+3. **Responsible Disclosure**: Report findings through appropriate channels
+4. **No Malicious Use**: This tool is for defensive security purposes only
+
+### What This Tool Does NOT Do
+- ❌ Perform actual HTTP requests to test paths
+- ❌ Attempt to bypass authentication
+- ❌ Exploit vulnerabilities
+- ❌ Access unauthorized systems
+
+### Data Privacy
+- 🔒 No data is transmitted to external servers
+- 🔒 All processing happens locally
+- 🔒 Optional logging to local file only
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### Missing Dependencies
+```bash
+⚠️ Some OSINT features unavailable. Missing: requests, dnspython
+💡 Install with: pip install requests dnspython python-whois
+```
+
+#### Permission Errors
+```bash
+# Use virtual environment or --break-system-packages flag
+python3 -m venv venv && source venv/bin/activate
+pip install <packages>
+```
+
+#### Import Errors
+```bash
+# Ensure Python 3.8+
+python3 --version
+
+# Check installed packages
+pip list
+```
+
+## 📝 Examples
+
+### E-commerce Site
+```
+Target: https://shop.example.com
+Owner: Jane Doe
+Site Type: shop
+CMS: magento
+Language: english
+OSINT: Yes
+
+Generated paths include:
+- admin
+- magento_admin
+- shop/admin
+- janedoe_admin
+- tienda (if Spanish detected)
+```
+
+### Government Portal
+```
+Target: https://portal.gov.example
+Site Type: government
+Language: english
+OSINT: Yes
+
+Generated paths include:
+- admin
+- gov-admin
+- government
+- secure
+- portal
+- official
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+### Development Setup
+```bash
+git clone <repository>
+cd smart-admin-finder
+python3 -m venv dev-env
+source dev-env/bin/activate
+pip install -r requirements-dev.txt
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⚖️ Legal Disclaimer
+
+The authors and contributors of this tool are not responsible for any misuse or illegal activities. Users are solely responsible for ensuring their use of this tool complies with applicable laws and ethical guidelines.
+
+This tool is provided "as is" without warranty of any kind. Use at your own risk.
+
+## 🔗 Resources
+
+- [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+- [Ethical Hacking Guidelines](https://www.eccouncil.org/ethical-hacking/)
+- [Responsible Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html)
+
+---
+
+**Remember**: With great power comes great responsibility. Use this tool ethically! 🛡️

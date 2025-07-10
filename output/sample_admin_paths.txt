@@ -1,0 +1,108 @@
+# Smart Admin Finder - Generated Admin Paths
+# ==========================================
+# Target URL: https://blog.example.com
+# Domain: example.com
+# Subdomain: blog
+# Owner: John Smith
+# Site Type: blog
+# CMS: wordpress
+# Language: english
+# OSINT Enabled: True
+# Generated: 2024-01-15 14:30:22
+# Total Paths: 68
+#
+# Format: Each line contains a potential admin path
+# Usage: Append these paths to your target URL
+# Example: https://blog.example.com/admin
+#
+
+# === HIGH PRIORITY PATHS (Top 50) ===
+wp-admin
+wp-login.php
+admin
+administrator
+wp-admin/
+johnsmith_admin
+smith_admin
+blog/admin
+adminpanel
+wp-admin/admin.php
+john_admin
+admin_john
+wp/wp-admin
+blog/wp-admin
+wordpress/wp-admin
+administration
+admin_panel
+backend
+control
+controlpanel
+dashboard
+login
+signin
+auth
+manage
+manager
+wp-content/
+wp-includes/
+wp-admin/install.php
+wp-admin/upgrade.php
+admin/login
+admin/login.php
+admin/admin
+admin/dashboard
+blog-admin
+blogger
+posts
+smithadmin
+adminjohn
+johnsmith
+john_smith
+john.smith
+smithjohn
+smith_john
+smith.john
+js
+johnadmin
+adminsmith
+johnsmith_panel
+panel_johnsmith
+johnsmith_login
+login_johnsmith
+control_panel
+admin-console
+admin_console
+admin_area
+admin-area
+
+# === ADDITIONAL PATHS ===
+cpanel
+cpanel/
+management
+admin-panel
+back-end
+login.php
+login.html
+sign-in
+authenticate
+authentication
+portal
+admin_portal
+console
+panel
+webadmin
+web-admin
+siteadmin
+site-admin
+root
+superuser
+su
+restricted
+secure
+private
+internal
+
+# === STATISTICS ===
+# Total unique paths generated: 68
+# High priority paths: 50
+# Additional paths: 18

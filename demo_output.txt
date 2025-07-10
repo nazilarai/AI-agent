@@ -1,0 +1,106 @@
+# Smart Admin Finder - Demo Output
+# Sample run for: https://blog.example.com (WordPress blog)
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                           🔍 SMART ADMIN FINDER 🔍                           ║
+║                     Expert-Level Admin Panel Discovery                        ║
+║                                                                               ║
+║  🎯 Intelligent Path Generation  🧠 ML-Enhanced Accuracy  🌐 OSINT Enriched  ║
+║                                                                               ║
+║                        For Ethical Security Assessment Only                   ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+🚀 Initializing Smart Admin Finder v1.0.0...
+
+📋 Target Information Gathering
+==================================================
+🌐 Target website URL (required): https://blog.example.com
+✅ Target: https://blog.example.com
+📍 Domain: example.com | Subdomain: blog
+
+📝 Additional Information (Optional - Press Enter to skip)
+-------------------------------------------------------
+👤 Owner's full name: John Smith
+
+💡 Site type suggestions: blog, shop, government, corporate, educational, news, forum
+🏢 Site type: blog
+
+💡 CMS suggestions: wordpress, joomla, drupal, magento, shopify, prestashop, opencart, typo3
+⚙️ CMS/Platform used: wordpress
+
+💡 Language suggestions: english, spanish, french, german, italian, portuguese, russian, chinese
+🌍 Site language: english
+
+🔍 OSINT Enrichment
+--------------------
+Enable expert-level OSINT enrichment? (y/N): y
+
+✅ Configuration complete!
+
+🔍 Performing OSINT Enrichment...
+========================================
+⚠️ Some OSINT features unavailable. Missing: requests, dnspython, python-whois
+💡 Install with: pip install requests dnspython python-whois
+⚠️ DNS reconnaissance skipped (dnspython not available)
+⚠️ WHOIS lookup skipped (python-whois not available)
+⚠️ Technology detection skipped (requests not available)
+✅ OSINT enrichment completed!
+
+🧠 Generating Intelligent Admin Paths...
+=============================================
+  ⚙️ Added 11 CMS-specific paths for wordpress
+  🌍 Added 0 language-specific paths for english
+  🏢 Added 5 site-type specific paths for blog
+  👤 Added 28 name-based paths
+  📡 Added 0 subdomain-based paths
+  🔍 Added 0 OSINT-enhanced paths
+  🤖 ML path generation skipped (scikit-learn not available)
+
+📊 Ranking and Deduplicating Paths...
+========================================
+  ✅ Processed 75 paths → 68 unique, ranked paths
+
+💾 Saving Results...
+=========================
+  ✅ Results saved to: output/generated_admin_paths.txt
+  📊 Total paths generated: 68
+  🎯 High-priority paths: 50
+
+📈 Analysis Summary
+==============================
+🎯 Target: https://blog.example.com
+📊 Total Paths Generated: 68
+🔍 OSINT Analysis: ✅ Enabled
+
+🏆 Top 10 Recommended Paths:
+------------------------------
+   1. wp-admin
+      → https://blog.example.com/wp-admin
+   2. wp-login.php
+      → https://blog.example.com/wp-login.php
+   3. admin
+      → https://blog.example.com/admin
+   4. administrator
+      → https://blog.example.com/administrator
+   5. wp-admin/
+      → https://blog.example.com/wp-admin/
+   6. johnsmith_admin
+      → https://blog.example.com/johnsmith_admin
+   7. smith_admin
+      → https://blog.example.com/smith_admin
+   8. blog/admin
+      → https://blog.example.com/blog/admin
+   9. adminpanel
+      → https://blog.example.com/adminpanel
+  10. wp-admin/admin.php
+      → https://blog.example.com/wp-admin/admin.php
+
+📋 ... and 58 more paths in the output file
+
+💡 Next Steps:
+   1. Review the generated paths in output/generated_admin_paths.txt
+   2. Use these paths responsibly for authorized security assessments
+   3. Consider the high-priority paths first for better efficiency
+
+🎉 Smart Admin Finder completed successfully!
+⚖️  Remember: Use these results responsibly and only for authorized security assessments.
