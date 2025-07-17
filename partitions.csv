@@ -1,0 +1,21 @@
+# Name,   Type, SubType, Offset,  Size,    Flags
+# Proximity SE Ultimate - Optimized Partition Table
+# Total Flash: 4MB (adjust for larger flash sizes)
+# 
+# Bootloader: 28KB (fixed by ESP-IDF)
+# Partition Table: 4KB (fixed)
+# NVS: 24KB (device configuration, WiFi credentials)
+# PHY Init: 4KB (WiFi/BT calibration data)
+# Factory App: 1536KB (main application)
+# OTA_0: 1536KB (OTA update partition)
+# OTA_1: 1536KB (OTA rollback partition)
+# SPIFFS: 512KB (web interface, logs, captured data)
+# Coredump: 64KB (crash dumps for debugging)
+# 
+nvs,        data, nvs,     0x9000,  0x6000,
+phy_init,   data, phy,     0xf000,  0x1000,
+factory,    app,  factory, 0x10000, 0x180000,
+ota_0,      app,  ota_0,   0x190000, 0x180000,
+ota_1,      app,  ota_1,   0x310000, 0x180000,
+spiffs,     data, spiffs,  0x490000, 0x80000,
+coredump,   data, coredump, 0x510000, 0x10000,
